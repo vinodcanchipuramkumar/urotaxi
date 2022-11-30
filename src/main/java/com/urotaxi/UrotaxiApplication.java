@@ -1,9 +1,13 @@
 package com.urotaxi;
 
+import java.time.Duration;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.http.CacheControl;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -17,6 +21,12 @@ public class UrotaxiApplication extends SpringBootServletInitializer implements 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
 		return builder.sources(UrotaxiApplication.class);
+	}
+
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		CacheControl cc = CacheControl.maxAge(Duration.ofMinutes(30)).cachePublic().sMaxAge(Duration.ofHours(1));
+		registry.addResourceHandler("/static/**").setCacheControl(cc);
 	}
 
 	@Override
