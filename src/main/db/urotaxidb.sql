@@ -2,7 +2,7 @@ CREATE DATABASE  IF NOT EXISTS `urotaxidb` /*!40100 DEFAULT CHARACTER SET utf8mb
 USE `urotaxidb`;
 -- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
--- Host: localhost    Database: urotoaxidb
+-- Host: localhost    Database: urotaxidb
 -- ------------------------------------------------------
 -- Server version	8.0.20
 
